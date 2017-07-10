@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../../system/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../system/script/bootstrap.js"></script>
+<link rel="stylesheet" href="../../system/css/bootstrap.min.css">
+<script type="text/javascript">
+	$(function() {
+		$.get("/myproject-web/app/book", function(data){
+			var array =  data.body.data;
+			for (var i in array) {
+				var temple = "<tr><td>id</td><td>name</td><td>age</td></tr>"
+				var obj = array[i];
+				temple = temple.replace(/id/, obj.id).replace(/name/, obj.name).replace(/age/, obj.age);
+				$("table").append(temple);
+			}
+		})
+	});
+</script>
+</head>
+<body>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>age</th>
+		</tr>
+	</table>
+	<form action="/myproject-web/app/book/saveOrUpdate" method="get">
+		<input name="book.id" value= "">
+		<input name="book.name" value= "">
+		<input name="book.age" value= "">
+		<button type="submit">SaveOrUpdate</button>
+	</form>
+</body>
+</html>

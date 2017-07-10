@@ -1,0 +1,29 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.convention.action.suffix" value="Controller" />
+	<constant name="struts.convention.action.mapAllMatches" value="true" />
+	<constant name="struts.convention.default.parent.package" value="rest-default" />
+	<constant name="struts.convention.package.locators" value="service" />
+	<constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper" />
+	<constant name="struts.mapper.prefixMapping" value="/app:rest" />
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false" /> 
+	<constant name="struts.rest.defaultExtension" value="json" />
+	<package name="myapp" namespace="/app" extends="rest-default">
+		<interceptors>
+			<interceptor name="appException" class="com.sun.restful.intercaptor.AppExceptionIntercaptor"/>
+			<interceptor-stack name="appInterceptorStack">
+				<interceptor-ref name="appException" />
+				<interceptor-ref name="restDefaultStack" />
+				<interceptor-ref name="basicStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- <default-interceptor-ref name="appInterceptorStack"/> -->
+		<action name="*Controller/*" method="{2}" class="{1}Controller">
+			<interceptor-ref name="appInterceptorStack"/>
+		</action>
+	</package>
+</struts>

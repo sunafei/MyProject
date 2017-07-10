@@ -14,5 +14,11 @@
 			<artifactId>myproject-util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sun</groupId>
+			<artifactId>myproject-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
+
 </project>

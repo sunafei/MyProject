@@ -1,0 +1,6 @@
+[ERROR] 2017-07-03 10:30:22,559 com.sun.abilities.log4j.Log4jExample2 - aaaa
+[INFO] 2017-07-03 10:30:22,560 com.sun.abilities.log4j.Log4jExample2 - sss
+[DEBUG] 2017-07-03 10:30:22,560 com.sun.abilities.log4j.Log4jExample2 - sssssssss
+[ERROR] 2017-07-03 10:30:53,793 com.sun.abilities.log4j.Log4jExample2 - aaaa
+[INFO] 2017-07-03 10:30:53,794 com.sun.abilities.log4j.Log4jExample2 - sss
+[DEBUG] 2017-07-03 10:30:53,794 com.sun.abilities.log4j.Log4jExample2 - sssssssss
